@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarthySpot | Innovating the Future of Agriculture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background: url('img_2060.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .overlay {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.45) 100%);
+            display: flex;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left Column */
+        .left-content {
+            padding-right: 40px;
+        }
+
+        .top-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .top-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .top-logo-placeholder {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a9c4f 0%, #2d7a32 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .top-logo span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Right Column */
+        .right-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-logo {
+            width: 280px;
+            height: 280px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .main-logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .main-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #87ceeb 0%, #4a9c4f 50%, #8b4513 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 35px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-placeholder span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-placeholder small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .subscribe-section h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .form-container input[type="email"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-container input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-container input[type="email"]:focus {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 15px 20px;
+            background: #4a9c4f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: #3d8342;
+            transform: translateY(-2px);
+        }
+
+        .no-spam {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 12px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .left-content {
+                padding-right: 0;
+                order: 2;
+            }
+
+            .right-content {
+                order: 1;
+            }
+
+            .top-logo {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .overlay {
+                padding: 30px 20px;
+            }
+
+            .main-logo {
+                width: 220px;
+                height: 220px;
+            }
+
+            .subscribe-section {
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .subscribe-section h2 {
+                font-size: 1.15rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .overlay {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            .main-logo {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 25px;
+            }
+
+            .main-logo::before {
+                width: 200px;
+                height: 200px;
+            }
+
+            .logo-placeholder {
+                width: 140px;
+                height: 140px;
+            }
+
+            .subscribe-section h2 {
+                font-size: 1.05rem;
+                margin-bottom: 12px;
+            }
+
+            .form-container {
+                max-width: 280px;
+            }
+
+            .form-container input[type="email"] {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+
+            .form-container button {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+            }
+
+            .no-spam {
+                font-size: 0.75rem;
+                margin-top: 10px;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <!-- Left Column -->
+            <div class="left-content">
+                <div class="top-logo">
+                    <img src="earthyspot-logo.png" alt="EarthySpot">
+                    <span>EarthySpot</span>
+                </div>
+
+                <h1>Innovating the Future of Agriculture</h1>
+
+                <p class="description">
+                    EarthySpot is pioneering data-driven precision farming to cultivate healthier crops and more sustainable practices. We connect smart farms with intelligent insights to optimize resources and improve yields.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.instagram.com/earthyspotagritech/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61587487013843" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/earthyspot" target="_blank" title="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-content">
+                <div class="main-logo">
+                    <img src="earthyspot-logo.png" alt="EarthySpot - Precision Farming for a Green Planet">
+                </div>
+
+                <div class="subscribe-section">
+                    <h2>Be the first to know</h2>
+
+                    <form action="https://formspree.io/f/xaqbqqpg" method="POST" class="form-container">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+
+                    <p class="no-spam">No spam. Only meaningful updates.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 EarthySpot AgriTech. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
